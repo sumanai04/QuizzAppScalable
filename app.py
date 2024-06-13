@@ -15,9 +15,9 @@ app.config['SESSION_KEY_PREFIX'] = 'session:'
 
 # Configuration for Redis
 redis_client = redis.StrictRedis(
-    host=os.getenv('REDIS_HOST', 'decent-mammoth-33852.upstash.io'),
-    port=int(os.getenv('REDIS_PORT', 6379)),
-    password=os.getenv('REDIS_PASSWORD', 'AYQ8AAIncDFjZjY5ODU2NzU0YzI0M2UxODQ3NWM4ZDQ4ZTJhYmY5N3AxMzM4NTI'),
+    host=os.getenv('REDIS_HOST', 'insert yours'),
+    port=int(os.getenv('REDIS_PORT', insert yours)),
+    password=os.getenv('REDIS_PASSWORD', 'insert yours'),
     ssl=bool(os.getenv('REDIS_SSL', True)),
     decode_responses=False  # Disable automatic decoding to handle non-UTF-8 data
 )

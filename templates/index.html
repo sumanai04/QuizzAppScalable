@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/student dashboard.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    </span>
+                <div class="text header-text">
+                    <span class="name">Quiz App</span>
+                    <span class="profession">Kimi Deska Hylmi</span>
+                </div>
+            </div>
+        </header>
+        <!-- <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-link">
+                    <li class="nav-link">
+                        <a href="create_quiz.html">
+                            <i class='bx bx-edit icon'></i>
+                            <span class="text nav-text">Create Quiz</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="quiz.html">
+                            <i class='bx bx-spreadsheet icon'></i>
+                            <span class="text nav-text">My Quizzes</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="leaderboard.html">
+                            <i class='bx bx-bar-chart-alt-2 icon'></i>
+                            <span class="text nav-text">Leaderboard</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="bottom-content">
+                <li class="">
+                    <a href="{{ url_for('logout') }}">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text">Log-out</span> 
+                    </a>
+                </li>
+            </div>
+        </div> -->
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Welcome to the Quiz App</h1>
+        <p><a class="create-quiz-btn" href="{{ url_for('create_quiz') }}">Create a New Quiz</a></p>
+        <h2>Available Quizzes</h2>
+        <ul>
+            {% for quiz in quizzes %}
+            <li><a href="{{ url_for('quiz', quiz_id=quiz.id) }}">{{ quiz.name }}</a></li>
+            {% endfor %}
+        </ul>
+        <p><a class="logout-btn" href="{{ url_for('logout') }}">Logout</a></p>
+    </div>
+</body>
+</html>

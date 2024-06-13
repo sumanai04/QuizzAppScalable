@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ quiz.name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>{{ quiz.name }}</h1>
+        <form action="{{ url_for('submit', quiz_id=quiz.id) }}" method="post" class="quiz-form">
+            {% for question in quiz.questions %}
+                <div class="question-block">
+                    <p class="question">{{ question.question }}</p>
+                    {% for option in question.options %}
+                        <label class="option">
+                            <input type="radio" name="{{ question.id }}" value="{{ loop.index }}">
+                            {{ option }}
+                        </label><br>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>No questions available.</p>
+            {% endfor %}
+            <button type="submit" class="submit-btn">Submit Quiz</button>
+        </form>
+    </div>
+</body>
+</html>

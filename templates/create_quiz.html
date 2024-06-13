@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/create quiz.css') }}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    
+                </span>
+                <div class="text header-text">
+                    <span class="name">Username</span>
+                    <span class="profession">Teacher</span>
+                </div>
+            </div>
+        </header>
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-link">
+                    <li class="nav-link">
+                        <a href="index.html">
+                            <i class='bx bxs-dashboard icon'></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="index.html">
+                            <i class='bx bx-spreadsheet icon'></i>
+                            <span class="text nav-text">My Quizzes</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="leaderboard.html">
+                            <i class='bx bx-bar-chart-alt-2 icon'></i>
+                            <span class="text nav-text">Leaderboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="create_quiz.html">
+                            <i class='bx bx-edit icon'></i>
+                            <span class='text nav-text'>Create Quiz</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="bottom-content">
+                <li class="">
+                    <a href="login.html">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text">Log-out</span> 
+                    </a>
+                </li>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>Create a New Quiz</h1>
+        <form method="POST">
+            <p>
+                <label for="quiz_name">Quiz Name:</label>
+                <input type="text" id="quiz_name" name="quiz_name" required>
+            </p>
+            <div id="questions">
+                <div class="question-block">
+                    <p>
+                        <label for="question">Question:</label>
+                        <input type="text" name="question" required>
+                    </p>
+                    <p>
+                        <label for="option1">Option 1:</label>
+                        <input type="text" name="option1" required>
+                    </p>
+                    <p>
+                        <label for="option2">Option 2:</label>
+                        <input type="text" name="option2" required>
+                    </p>
+                    <p>
+                        <label for="option3">Option 3:</label>
+                        <input type="text" name="option3" required>
+                    </p>
+                    <p>
+                        <label for="option4">Option 4:</label>
+                        <input type="text" name="option4" required>
+                    </p>
+                    <p>
+                        <label for="correct_option">Correct Option:</label>
+                        <input type="number" name="correct_option" min="1" max="4" required>
+                    </p>
+                </div>
+            </div>
+            <p><button type="button" onclick="addQuestion()">Add Another Question</button></p>
+            <p><button type="submit">Create Quiz</button></p>
+        </form>
+    </div>
+
+    <script>
+        function addQuestion() {
+            const questionBlock = document.querySelector('.question-block');
+            const newQuestionBlock = questionBlock.cloneNode(true);
+            document.getElementById('questions').appendChild(newQuestionBlock);
+        }
+    </script>
+</body>
+</html>
